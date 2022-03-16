@@ -1,14 +1,22 @@
 import { Card, Button } from "react-bootstrap";
+import MyBadge from "./MyBadge";
 
-const SingleBook = (data) => {
-  console.log(data.data);
+const SingleBook = (props) => {
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={data.data[0].img} />
+      <Card style={{ width: "14rem" }}>
+        <MyBadge
+          color="black"
+          bgColor="yellow"
+          text="New"
+          padding={8}
+          position="absolute"
+        />
+        <Card.Img variant="top" src={props.img} />
+
         <Card.Body>
-          <Card.Title>{data.data[0].title}</Card.Title>
-          <Button variant="primary">{data.data[0].price}</Button>
+          <Card.Title>{props.title}</Card.Title>
+          <Button variant="primary">{props.price}</Button>
         </Card.Body>
       </Card>
     </>

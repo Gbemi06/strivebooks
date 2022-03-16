@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import BookList from "./components/BookList";
 import MyBadge from "./components/MyBadge";
 import SingleBook from "./components/SingleBook";
 import WarningSign from "./components/WarningSign";
@@ -9,8 +10,7 @@ function App() {
   return (
     <div>
       <WarningSign message="welcome to the book store" />
-      <MyBadge color="black" bgColor="yellow" text="New" padding={8} />
-      <SingleBook data={data} />
+      <BookList data={data} />
     </div>
   );
 }

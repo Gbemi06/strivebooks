@@ -8,6 +8,7 @@ const MyBadge = (props) => {
         color: props.color,
         backgroundColor: props.bgColor,
         padding: props.padding,
+        position: props.position,
       }}
     >
       {props.text}
