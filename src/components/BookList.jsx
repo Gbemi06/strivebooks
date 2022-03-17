@@ -35,6 +35,7 @@ class BookList extends Component {
                   img={book.img}
                   title={book.title}
                   price={book.price}
+                  asin={book.asin}
                 />
               </Col>
             ))}
