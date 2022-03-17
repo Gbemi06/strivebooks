@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <WarningSign message="welcome to the book store" />
-      <SingleBook data={data[0]} />
+      <SingleBook />
       <BookList data={data} />
     </div>
   );
