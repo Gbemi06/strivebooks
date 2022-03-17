@@ -4,7 +4,7 @@ import CommentList from "./CommentList";
 
 class CommentArea extends Component {
   state = {
-    selectedComment: null,
+    selectedComment: [],
   };
 
   componentDidMount = () => {
@@ -31,8 +31,8 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
-        <CommentList />
-        <AddComment />
+        <CommentList data={this.state.selectedComment} />
+        <AddComment data={this.state.selectedComment} />
       </div>
     );
   }
