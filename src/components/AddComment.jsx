@@ -2,7 +2,33 @@ import { Component } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
 class AddComment extends Component {
-  render() {
+    state = {
+        comment: {
+            comment: "",
+        rate: "",
+        elementId: ""
+        }
+        
+    }
+
+    componentDidMount = () => {
+        this.fetchData()
+    }
+
+    fetchData = async () => {
+    let response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
+      {
+        method: "POST",
+        body: JSON.stringify(this.)
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzAyYTgyZWExZDAwMTViYjA0N2MiLCJpYXQiOjE2NDY4Mjc5MjMsImV4cCI6MTY0ODAzNzUyM30.bv0OPqIsk7sINCAZvAlech3BRJzoVaHtSIYkuklYQ2o",
+        },
+      }
+    );
+        let
+    }  render() {
     return (
       <Container>
         <Form>
