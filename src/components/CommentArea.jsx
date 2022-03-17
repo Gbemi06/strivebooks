@@ -32,7 +32,7 @@ class CommentArea extends Component {
     return (
       <div>
         <CommentList data={this.state.selectedComment} />
-        <AddComment data={this.state.selectedComment} />
+        <AddComment asin={this.props.asin} />
       </div>
     );
   }
