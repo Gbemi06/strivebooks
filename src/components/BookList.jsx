@@ -9,6 +9,8 @@ class BookList extends Component {
   render() {
     return (
       <Container>
+        {console.log(this.props.selectedBook)}
+        {console.log(this.props.changeBook)}
         <Form inline className="d-flex justify-content-center p-3">
           <FormControl
             type="text"
@@ -35,7 +37,9 @@ class BookList extends Component {
                   img={book.img}
                   title={book.title}
                   price={book.price}
-                  asin={book.asin}
+                  asin={this.props.selectedBook}
+                  changeBook={() => this.props.changeBook(book.asin)}
+                  selectedBook={this.props.selectedBook}
                 />
               </Col>
             ))}

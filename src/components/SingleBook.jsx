@@ -4,17 +4,14 @@ import CommentArea from "./CommentArea";
 import MyBadge from "./MyBadge";
 
 class SingleBook extends Component {
-  state = {
-    selectedBook: false,
-  };
   render() {
     return (
       <>
         <Card
-          onClick={() =>
-            this.setState({ selectedBook: !this.state.selectedBook })
-          }
-          style={{ border: this.state.selectedBook ? "2px solid red" : "none" }}
+          onClick={(e) => this.props.changeBook(this.props.selectedBook)}
+          style={{
+            border: !this.props.selectedBook ? "2px solid red" : "none",
+          }}
         >
           <MyBadge
             color="black"
@@ -28,7 +25,6 @@ class SingleBook extends Component {
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
             <Button variant="primary">{this.props.price}</Button>
-            {this.state.selectedBook && <CommentArea asin={this.props.asin} />}
           </Card.Body>
         </Card>
       </>
