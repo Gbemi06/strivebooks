@@ -7,8 +7,10 @@ class CommentArea extends Component {
     selectedComment: [],
   };
 
-  componentDidMount = () => {
-    this.fetchData();
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.asin !== this.props.asin) {
+      this.fetchData();
+    }
   };
 
   fetchData = async () => {

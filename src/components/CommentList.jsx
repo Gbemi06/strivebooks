@@ -4,9 +4,9 @@ const CommentList = ({ data }) => {
   return (
     <Container>
       {console.log(data)}
-      <ListGroup key={data._id}>
+      <ListGroup>
         {data.map((book, i) => (
-          <ListGroup.Item>
+          <ListGroup.Item key={book._id}>
             {i + 1} - {book.comment}
           </ListGroup.Item>
         ))}
