@@ -14,7 +14,7 @@ class AddComment extends Component {
     e.preventDefault();
 
     let response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
+      "https://striveschool-api.herokuapp.com/api/comments/",
       {
         method: "POST",
         body: JSON.stringify(this.state.comment),
@@ -32,7 +32,7 @@ class AddComment extends Component {
   render() {
     return (
       <Container>
-        <Form>
+        <Form onSubmit={this.sendComment}>
           <Form.Group className="mb-3">
             <Form.Label>Comment</Form.Label>
             <Form.Control
