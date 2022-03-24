@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
 const AddComment = ({ asin }) => {
@@ -7,6 +7,13 @@ const AddComment = ({ asin }) => {
     rate: 1,
     elementId: asin,
   });
+
+  useEffect(() => {
+    sendComment((message) => ({
+      ...message,
+      elementId: asin,
+    }));
+  }, [asin]);
 
   const sendComment = async (e) => {
     e.preventDefault();
@@ -22,10 +29,12 @@ const AddComment = ({ asin }) => {
           "Content-Type": "application/json",
         },
       }
-    );
-    let data = await response.json();
-    console.log(data);
-    setComment(data);
+      );
+      if (response.ok) {
+        alert("message sent successfully");
+        console.log(comment);
+        setComment(comment);
+    }
   };
   return (
     <Container>

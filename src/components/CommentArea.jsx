@@ -4,6 +4,7 @@ import CommentList from "./CommentList";
 
 const CommentArea = ({ asin }) => {
   const [selectedComment, setSelectedComment] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     fetchData();

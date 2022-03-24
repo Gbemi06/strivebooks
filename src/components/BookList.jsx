@@ -7,8 +7,6 @@ const BookList = ({ selectedBook, changeBook, data }) => {
 
   return (
     <Container>
-      {console.log(selectedBook)}
-      {console.log(changeBook)}
       <Form inline className="d-flex justify-content-center p-3">
         <FormControl
           type="text"
