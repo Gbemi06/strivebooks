@@ -1,21 +1,18 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import AddComment from "./AddComment";
 import CommentList from "./CommentList";
 
-class CommentArea extends Component {
-  state = {
-    selectedComment: [],
-  };
+const CommentArea = ({ asin }) => {
+  const [selectedComment, setSelectedComment] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
-  componentDidUpdate = (prevProps) => {
-    if (prevProps.asin !== this.props.asin) {
-      this.fetchData();
-    }
-  };
+  useEffect(() => {
+    fetchData();
+  }, [asin]);
 
-  fetchData = async () => {
+  const fetchData = async () => {
     let response = await fetch(
-      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
+      "https://striveschool-api.herokuapp.com/api/comments/" + asin,
       {
         headers: {
           Authorization:
@@ -25,18 +22,16 @@ class CommentArea extends Component {
     );
     let data = await response.json();
     console.log(data);
-    console.log(this.props.asin);
-    this.setState({ selectedComment: data });
+    console.log(asin);
+    setSelectedComment(data);
   };
 
-  render() {
-    return (
-      <div>
-        <CommentList data={this.state.selectedComment} />
-        <AddComment asin={this.props.asin} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <CommentList data={selectedComment} />
+      <AddComment asin={asin} />
+    </div>
+  );
+};
 
 export default CommentArea;
